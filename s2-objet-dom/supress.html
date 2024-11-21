@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<ul id="ma-liste">
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+		</ul>
+		<script>
+			// Sélectionner la liste avec l'ID 'ma-liste' Le script récupère l'élément <ul> avec id="ma-liste".
+			const liste = document.getElementById('ma-liste');
+
+			// Supprimer le dernier élément <li> de la liste
+			if (liste.lastElementChild) {
+				liste.removeChild(liste.lastElementChild);
+			}
+		</script>
+	</body>
+</html>
+

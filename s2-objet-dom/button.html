@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<p id="texte">Cliquez sur le bouton pour surligner ce texte.</p>
+		<button id="toggle-btn">Alterner</button>
+		<style>
+			.highlight {
+				background-color: yellow;
+			}
+		</style>
+		<script>
+			// Sélectionner le paragraphe avec l'ID 'texte' Le script récupère l'élément <p> avec id="texte".
+			const paragraphe = document.getElementById('texte');
+
+			// Sélectionner le bouton avec l'ID 'toggle-btn' Le script récupère l'élément <button> avec id="toggle-btn".
+			const bouton = document.getElementById('toggle-btn');
+
+			// Ajouter un gestionnaire d'événements au bouton.  L'événement click sur le bouton déclenche la modification de surbrillance
+			bouton.addEventListener('click', function() {
+				// Alterner la classe 'highlight' sur le paragraphe
+				paragraphe.classList.toggle('highlight');
+			});
+		</script>
+	</body>
+</html>

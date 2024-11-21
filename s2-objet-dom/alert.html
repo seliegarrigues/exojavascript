@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Alert</h1> <!-- Titre de la page -->
+    </header>
+
+    <main>
+        <section>
+            <article></article> <!-- Zone pour afficher un message d'alerte dans la page elle-même -->
+            <aside></aside> <!-- Zone pour afficher un message d'alerte fixe dans la page elle-même -->
+        </section>
+        <section>
+            <input type="text" id="messageInput" placeholder="Enter your message..."> <!-- Champ texte pour que l'utilisateur entre un message -->
+            <button id="alertButton">Alert with entered message</button> <!-- Bouton pour afficher une alerte avec le message saisi -->
+            <button id="fixedAlertButton">Alert with fixed message</button> <!-- Deuxième bouton pour afficher une alerte préconfigurée -->
+            <button id="resetButton">Reset</button> <!-- Bouton pour réinitialiser le champ texte et la zone d'alerte intégrée -->
+        </section>
+    </main>
+    <footer></footer>
+    <script>
+        const messageInput = document.getElementById('messageInput'); // Sélection du champ texte
+        const alertButton = document.getElementById('alertButton'); // Sélection du premier bouton
+        alertButton.addEventListener('click',() => { // Événement click sur le premier bouton
+            const alertBox = document.querySelector('article'); // Sélection de la zone d'alerte intégrée
+            const newDiv = document.createElement('div'); // Création d'un nouvel élément div
+            if (messageInput.value.trim() === "") { // Vérification si le champ est vide
+                newDiv.textContent = "Veuillez entrer un message !"; // Message d'erreur
+            } else {
+                newDiv.textContent = messageInput.value; // Message saisi par l'utilisateur
+            }
+            newDiv.style.border = '3px solid red'; // Style de la bordure
+            newDiv.style.width = 'fit-content'; // Largeur ajustée au contenu
+            newDiv.style.padding = '5px'; // Espacement intérieur
+            alertBox.appendChild(newDiv); // Ajout du message dans la zone d'alerte intégrée
+        });
+        const fixedAlertButton = document.getElementById('fixedAlertButton'); // Sélection du deuxième bouton
+        fixedAlertButton.addEventListener('click',() => { // Événement click sur le deuxième bouton
+            const aside = document.querySelector('aside'); // Sélection de la zone d'alerte fixe
+            const newDiv2 = document.createElement('div'); // Création d'un nouvel élément div
+            newDiv2.textContent = 'This is a fixed alert!'; // Message d'alerte fixe
+            aside.appendChild(newDiv2); // Ajout du message dans la zone d'alerte fixe
+        });
+        const resetButton = document.getElementById('resetButton'); // Sélection du bouton de réinitialisation
+        resetButton.addEventListener('click',() => { // Événement click sur le bouton de réinitialisation
+            const article = document.querySelector('article'); // Sélection de la zone d'alerte intégrée
+            article.innerHTML = ''; // Réinitialisation de la zone d'alerte intégrée
+            messageInput.value = ''; // Réinitialisation du champ texte
+            const aside = document.querySelector('aside'); // Sélection de la zone d'alerte fixe
+            aside.innerHTML = ''; // Réinitialisation de la zone d'alerte fixe
+        });
+    </script>
+</body>
+</html>

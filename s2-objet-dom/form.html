@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <form id="formulaire">
+            <input type="text" id="texte" placeholder="Ajouter un élément">
+            <button type="button" id="bouton">Ajouter</button>
+        </form>
+        <section>
+            <ul id="liste"></ul>
+        </section>
+    </main>
+    <script>
+        const formulaire = document.getElementById('formulaire');
+        const texteInput = document.getElementById('texte'); // Sélection du champ texte
+        const liste = document.getElementById('liste'); // Sélection de la liste <ul>
+        const bouton = document.getElementById('bouton');
+
+        bouton.addEventListener('click', () => { // Événement click sur le bouton
+            const texte = texteInput.value; // Récupération de la valeur du champ texte
+            if (texte.trim() !== '') { // Vérification que le texte n'est pas vide ou composé uniquement d'espaces
+                const nouvelItem = document.createElement('li');
+                nouvelItem.textContent = texte;
+                liste.appendChild(nouvelItem);
+                texteInput.value = ''; // Réinitialisation du champ texte
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<p id="texte">Ce texte sera surligné.</p>
+		<style>
+			.highlight {
+				background-color: yellow;
+			}
+		</style>
+		<script>
+			// Sélectionner l'élément avec l'ID 'texte' en utilisant querySelector
+			let element = document.querySelector('#texte');
+
+			// Ajouter la classe 'highlight' à l'élément
+			element.classList.add('highlight');
+		</script>
+	</body>
+</html>
