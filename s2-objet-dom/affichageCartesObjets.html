@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Styles par défaut pour les cartes */
+        #liste {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #liste li {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Media query pour les ordinateurs */
+        @media (min-width: 1024px) {
+            #liste li {
+                width: calc(30% - 20px); /* 3 cartes par ligne */
+            }
+        }
+
+        /* Media query pour les tablettes */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            #liste li {
+                width: calc(48% - 20px); /* 2 cartes par ligne */
+            }
+        }
+
+        /* Media query pour les smartphones */
+        @media (max-width: 767px) {
+            #liste li {
+                width: 100%; /* 1 carte par ligne */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>En-tête</h1>
+      </header>
+  
+      <nav>
+        <ul>
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">L'équipe</a></li>
+          <li><a href="#">Projets</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+  
+        <!-- Un formulaire de recherche est une autre façon de naviguer de
+              façon non‑linéaire dans un site. -->
+  
+        <form>
+          <input type="search" name="q" placeholder="Rechercher" />
+          <input type="submit" value="Lancer !" />
+        </form>
+      </nav>
+  
+      <!-- Ici nous mettons le contenu de la page -->
+      <main>
+        <!-- Il contient un article -->
+        <article>
+          <h2>En-tête d'article</h2>
+          <p id="entete">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam
+            lectus. 
+          </p>
+  
+          <h3>Sous‑section</h3>
+          <p id="sousSection">
+            Donec ut librero sed accu vehicula ultricies a non tortor. 
+          </p>
+          <p id="sous-section">
+            Pelientesque auctor nisi id magna consequat sagittis. 
+          </p>
+  
+          <h3>Autre sous‑section</h3>
+          <p id="autreSousSection">
+            Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. 
+          </p>
+          <p id="autre-sous-section">
+            Vivamus fermentum semper porta. Nunc diam velit, adipscing ut
+            tristique vitae sagittis vel odio. 
+          </p>
+        </article>
+  
+        <!-- Le contenu « à côté » peut aussi être intégré dans le contenu
+              principal -->
+        <aside>
+          <h2>En relation</h2>
+          <ul id="liste">
+            <li class="lienArticle"><a href="#">Comment </a></li>
+            <li class = "lienArticle"><a href="#">Quand</a></li>
+            <li class = "lienArticle"><a href="#">Qui</a></li>
+            <li class = "lienArticle"><a href="#">où</a></li>
+            <li class = "lienArticle"><a href="#">Eh bien…</a></li>
+          </ul>
+        </aside>
+      </main>
+  
+      <!-- Et voici notre pied de page utilisé sur toutes les pages du site -->
+      <footer>
+        <p>©Copyright 2050 par personne. Tous droits reversés.</p>
+        <script>
+           // Créer une liste de 9 objets, intitulés chacun par un mot-clé, composés chacun d'un Titre, d'un thème, d'un auteur, d'une date, d'un temps de lecture et d'une description
+const articlesList = [
+    {
+        id: 1,
+        title: "Les mystères de l'algorithme",
+        theme: "Programmation",
+        author: "Margaret Atwood",
+        date: "2019-05-15",
+        timeReading: "30 minutes",
+        description: "Dans ce livre, nous découvrons comment l'algorithme est un outil indispensable pour réaliser des programmes efficaces et crédibles."
+    },
+    {
+        id: 2,
+        title: "JavaScript avancé",
+        theme: "Développement web",
+        author: "David Flanagan",
+        date: "2019-06-10",
+        timeReading: "60 minutes",
+        description: "Ce livre vous apprendra à utiliser JavaScript pour créer des applications web et des sites web interactifs."
+    },
+    {
+        id: 3,
+        title: "Python pour les débutants",
+        theme: "Langage de programmation",
+        author: "David Flanagan",
+        date: "2019-06-15",
+        timeReading: "45 minutes",
+        description: "Dans ce livre, vous apprendrez à utiliser Python pour réaliser des programmes simples et efficaces."
+    },
+    {
+        id: 4,
+        title: "C++ pour les débutants",
+        theme: "Langage de programmation",
+        author: "David Flanagan",
+        date: "2019-06-20",
+        timeReading: "60 minutes",
+        description: "Dans ce livre, vous apprendrez à utiliser C++ pour créer des programmes complexes et efficaces."
+    },
+    {
+        id: 5,
+        title: "HTML5 et CSS3",
+        theme: "Développement web",
+        author: "David Flanagan",
+        date: "2019-06-25",
+        timeReading: "45 minutes",
+        description: "Dans ce livre, vous apprendrez à utiliser HTML5 et CSS3 pour créer des sites web interactifs et visuels."
+    },
+    {
+        id: 6,
+        title: "Node.js pour les débutants",
+        theme: "Langage de programmation",
+        author: "David Flanagan",
+        date: "2019-07-01",
+        timeReading: "60 minutes",
+        description: "Dans ce livre, vous apprendrez à utiliser Node.js pour créer des applications web et des sites web interactifs."
+    },
+    {
+        id: 7,
+        title: "React pour les débutants",
+        theme: "Développement web",
+        author: "David Flanagan",
+        date: "2019-07-08",
+        timeReading: "60 minutes",
+        description: "Dans ce livre, vous apprendrez à utiliser React pour créer des applications web et des sites web interactifs."
+    },
+    {
+        id: 8,
+        title: "Angular pour les débutants",
+        theme: "Développement web",
+        author: "David Flanagan",
+        date: "2019-07-15",
+        timeReading: "60 minutes",
+        description: "Dans ce livre, vous apprendrez à utiliser Angular pour créer des applications web et des sites web interactifs."
+    },
+    {
+        id: 9,
+        title: "Programmation orientée objet",
+        theme: "Développement web",
+        author: "David Flanagan",
+        date: "2019-07-22",
+        timeReading: "60 minutes",
+        description: "Dans ce livre, vous apprendrez à utiliser la programmation orientée objet pour créer des applications web et des sites web interactifs."
+    }
+];
+
+// Sélection de l'élément HTML où la liste sera insérée
+const listElement = document.querySelector("#liste");
+
+// Fonction pour créer un paragraphe avec un style commun
+function createParagraph( iconClass, key, value) {
+    const paragraph = document.createElement("p");
+    paragraph.style.margin = "5px 0";
+    paragraph.style.fontSize = "1em";
+    paragraph.style.color = "#666";
+
+    const icon = document.createElement("i");
+    icon.className =`fas ${iconClass}`;
+    icon.setAttribute("aria-label", key);// Ajout de l'attribut aria-label
+    paragraph.appendChild(icon);
+
+    const text = document.createTextNode(value);
+    paragraph.appendChild(text);
+    return paragraph;
+}
+
+// Parcourir le tableau d'objets et générer le contenu HTML
+articlesList.forEach(article => {
+    // Création d'une balise <li> pour chaque article
+    const listItem = document.createElement("li");
+    listItem.style.border = "1px solid #ccc";
+    listItem.style.padding = "10px";
+    listItem.style.margin = "10px";
+    listItem.style.borderRadius = "5px";
+    listItem.style.boxShadow = "2px 2px 6px rgba(0, 0, 0, 0.2)";
+    listItem.style.backgroundColor = "#f9f9f9";
+    listItem.style.display = "flex";
+    listItem.style.flexDirection = "column";
+    listItem.style.alignItems = "center";
+    listItem.style.textAlign = "center";
+
+    // Ajout d'une image aléatoire
+    const img = document.createElement("img");
+    img.src = `https://picsum.photos/200/150?random=${article.id}`;
+    img.alt = article.title;
+    img.style.maxWidth = "100%";
+    img.style.height = "auto";
+    img.style.borderRadius = "5px";
+    listItem.appendChild(img);
+
+    // Ajout du titre
+    const articleTitle = document.createElement("h2");
+    articleTitle.style.marginTop = "10px";
+    articleTitle.style.fontSize = "1.5em";
+    articleTitle.style.color = "#333";
+    const textTitle = document.createTextNode(article.title);
+    articleTitle.appendChild(textTitle);
+    listItem.appendChild(articleTitle);
+
+    // Ajout du paragraph avec la clé theme
+    const themeParagraph = createParagraph('fa-book', 'Thème', article.theme);
+    listItem.appendChild(themeParagraph);
+
+    // Création d'un conteneur pour les trois paragraphes suivants
+    const flexContainer = document.createElement("div");
+    flexContainer.style.display = "flex";
+    flexContainer.style.flexWrap = "wrap";
+    flexContainer.style.justifyContent = "space-evenly";
+    flexContainer.style.width = "100%";
+
+    // Ajout des trois paragraphes suivants dans le container
+    const propertiesToDisplay = [
+        
+        {key: 'author', icon: 'fa-user'}, 
+        {key: 'date', icon: 'fa-calendar-alt'}, 
+        {key: 'timeReading', icon: 'fa-clock'}, 
+        
+    ];
+    propertiesToDisplay.forEach(property => {
+        if (article[property.key]) {
+            const paragraph = createParagraph( property.icon, property.key, article[property.key]);
+            paragraph.style.flexBasis = '30%';// Définit une base flexible pour chaque paragraphe
+            paragraph.style.margin = '5px';// Ajoute une marge pour espacer les paragraphs
+           flexContainer.appendChild(paragraph);
+        }
+    });
+// Ajout du container dans la balise li
+    listItem.appendChild(flexContainer);
+
+    // Ajout du paragraph avec la clé description
+    const descriptionParagraph = createParagraph('fa-info-circle', 'Description', article.description);
+    listItem.appendChild(descriptionParagraph);
+
+    // Ajout de la balise <li> dans la balise <ul>
+    listElement.appendChild(listItem);
+});
+ 
+        </script>
+</body>
+</html>
