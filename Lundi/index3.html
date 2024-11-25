@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Call Example</title>
+</head>
+<body>
+    <div id="myNewSection"></div>
+    <script>
+        // Utilisation de la fonction fetch pour effectuer un appel API
+fetch('https://jsonplaceholder.typicode.com/todos/')
+  .then(response => {
+    // Vérifie si la réponse est OK (statut 200-299)
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    // Convertit la réponse en JSON
+    return response.json();
+  })
+  .then(dataJson => {
+    // Parcourt chaque élément de la réponse JSON
+    for (let dataIndex of dataJson) {
+      // Crée une chaîne HTML pour chaque élément
+      let HTML = `<h5>${dataIndex.id}</h5>
+                  <h5>${dataIndex.title}</h5>`;
+
+      // Affiche chaque élément dans la console
+      console.log(dataIndex);
+
+      // Ajoute le HTML à une section spécifique dans le document
+      document.getElementById("myNewSection").innerHTML += HTML;
+    }
+  })
+  .catch(error => {
+    // Gère les erreurs qui peuvent survenir pendant l'appel API
+    console.error("Error:", error);
+  });
+
+    </script>
+</body>
+</html>
