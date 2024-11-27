@@ -5,11 +5,14 @@
  - Être rompue si le produit est en rupture de stock. */
 /*=> Simulez un délai avec setTimeout. */
 const delay = ms => {
+    console.log('création promesse')
     return new Promise(resolve => setTimeout(resolve, ms));
 };
+
  const commanderProduit = produit => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
+            console.log('le delai est ok on résoud la promesse')
             if (produit.stock > 0) {
                 resolve(true); // Le produit est en stock la promesse se résout avec true
             } else {
@@ -19,10 +22,13 @@ const delay = ms => {
     });
 };
 
+/* // Appeler la fonction commanderProduit et utiliser .then pour gérer le cas où le produit est en stock
+    commanderProduit().then(() => {
+        console.log('Commande a nouveau réussie');
+    }); */
 
 
-// Exemple d'utilisation
-// Appeler la fonction commanderProduit et utiliser .then pour gérer le cas où le produit est en stock
+
 // donc peut être commandé
 const commanderProduitAsync =  async produit => {
     try {
@@ -37,8 +43,9 @@ const commanderProduitAsync =  async produit => {
     }
 };
 
-//exemple d'utilisaiton
+//exemple d'utilisation
 const produit = {stock:1};
+
 
 commanderProduitAsync(produit); // La commande est réussie
 
