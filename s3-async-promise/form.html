@@ -1,0 +1,139 @@
+<!-- Créez un formulaire de connexion avec les champs suivants :
+Adresse email
+Mot de passe -->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de connexion</title>
+    <!-- Ajoutez du CSS pour styliser le formulaire -->
+
+    <style>
+        /* Style du formulaire */
+        form {
+            max-width: 300px; /*400*/
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="checkbox"] {
+            margin-bottom: 10px;
+        }
+        button {
+        background-color: #d4d7db;
+        color: #f2f2f2;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 3px;
+        margin-top: 10px;
+
+        
+    }
+    button:hover{
+          background-color: #0056b3;  
+        }
+    </style> 
+</head>
+
+<body>
+    <form action="/submit" id="connect-form" method="post">
+        <label for="email">Adresse email:</label>
+        <input type="email" id="email" name="email" placeholder="alain.dupond@gmail.com" required>
+
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="remember-me">Se souvenir de moi</label>
+        <input type="checkbox" id="remember-me" name="remember-me">
+
+        <input type="submit" value="Connexion" id="connexion"> </input>
+        <button id="oubli" type="button">
+            <a href="oubli_mdp.html">Mot de passe oublié?</a>
+        </button>
+
+    </form>
+   <!--  Ajoutez des validations de données et affichage des erreurs en script JavaScript pour :
+1. S'assurer que les champs ne sont pas vides.2. Vérifier que l'email a un format valide.
+3. Afficher un message d'erreur si le mot de passe fait moins de 8 caractères. utlilisation de l'évenemment submit pour récupérer les données du formulaire -->
+
+<script>
+    const form = document.getElementById('connect-form');
+    console.log(form);
+    const rememberMeCheckbox = document.getElementById('remember-me');
+    const errorMessage = document.createElement('p');
+    errorMessage.style.color ='red';
+    errorMessage.style.marginTop = '5px';
+    errorMessage.style.fontSize = '12px';
+    errorMessage.style.display = 'none';
+    form.appendChild(errorMessage);
+    
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();//empèche l'envoi par défaut de la formula
+        console.log('tata');
+
+        const emailInput = document.getElementById('email').value;
+        const passwordInput = document.getElementById('password').value;
+
+       
+        console.log('Email:',emailInput);
+        console.log('Mot de passe:', passwordInput);
+       
+        
+        errorMessage.style.display = 'none';
+        
+        // Vérification des champs
+        if (emailInput.trim() === '' || passwordInput.trim() === '') {
+            errorMessage.textContent = 'Veuillez remplir tous les champs.';
+            errorMessage.style.display = 'block';
+            return;
+        }
+        
+        // Vérification de l'email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value)) {
+            errorMessage.textContent = 'Veuillez saisir un email valide.';
+            errorMessage.style.display = 'block';
+            return;
+        }
+        
+        // Vérification du mot de passe
+        if (passwordInput.length < 8) {
+            errorMessage.textContent = 'Le mot de passe doit contenir au moins 8 caractères.';
+            errorMessage.style.display = 'block';
+            return;
+        }
+        
+        // Si aucune erreur n'est détectée, on peut envoyer le formulaire
+        console.log('Formulaire envoyé avec succès.');
+        alert('Formulaire soumis avec succès!');
+        form.submit();
+       
+    });
+   
+    
+</script>
+</body>
+
+</html>
