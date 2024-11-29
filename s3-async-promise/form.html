@@ -112,7 +112,7 @@ Mot de passe -->
         
         // Vérification de l'email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailInput.value)) {
+        if (!emailRegex.test(emailInput)) {
             errorMessage.textContent = 'Veuillez saisir un email valide.';
             errorMessage.style.display = 'block';
             return;
