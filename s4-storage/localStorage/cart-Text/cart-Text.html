@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cart-text.css">
+    <title>Document</title>
+  
+</head>
+<body>
+    <!-- Créez une page avec une liste de produits (par exemple : pomme, banane, orange) et un bouton "Ajouter au panier" pour chaque produit.
+ -->
+    <ul id="product-list">
+        <li>
+            <h2>Pomme</h2>
+            <p>Pomme de terre</p>
+            <button class="add-to-cart" data-product="Pomme de terre">Ajouter au panier</button>
+        </li>
+        <li>
+            <h2>Banane</h2>
+            <p>Banane verte</p>
+            <button class="add-to-cart" data-product="Banane verte">Ajouter au panier</button>
+        </li>
+        <li>
+            <h2>Orange</h2>
+            <p>Orange rouge</p>
+            <button class="add-to-cart" data-product="Orange sanguine">Ajouter au panier</button>
+        </li>
+    </ul>
+    <section>
+        <h2>Panier</h2>
+        <ul id="cart-list">
+            <li id="selectedProduct"></li>
+        </ul>
+        <p id="total-price">Prix total : 0 ���</p>
+        <button id="remove-cart">Vider le panier</button>
+        <button id="checkout-btn">Commander</button>
+    </section>
+    
+<script src="cart-Text.js"></script>
+</body>
+</html>
+    
