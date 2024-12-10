@@ -36,14 +36,15 @@ document.addEventListener("DOMContentLoaded", () => {
   //ajoutent des produits au panier lorsque les boutons "Ajouter au panier" sont cliqués
   addToCartButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const product = button.getAttribute("data-product");
+      const product = button.getAttribute("data-product");// .parentElement.querySelector('h2').textContent pour récupérer le nom du produit associé au bouton cliqué.
+      //
       addToCart(product);
     });
   });
   // ajouter un ecouteur d'évènement au bouton"vider le panier"
   //efface tous les produits du panier lorsque le bouton "vider le panier" est cliqué.
   removeCartButton.addEventListener("click", () => {
-    sessionStorage.removeItem("cart");
+    sessionStorage.removeItem("cart");// sessionStorage.clear();//
     updateCartDisplay();
     updateTotalPrice();
   });
